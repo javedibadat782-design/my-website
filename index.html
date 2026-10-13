@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevCraft Studio – Custom Web Development & E-Commerce Agency</title>
+  <meta
+    name="description"
+    content="Hire a professional web developer for custom web development services, small business website design, and e-commerce web development. Get a free quote today."
+  />
+  <meta
+    name="keywords"
+    content="custom web development services, freelance web designer, small business website design, ecommerce web development company, responsive website design, affordable web design for small business, full-stack web development, SEO-optimized website builder, custom web application development, hire professional web developer, get website design quote, custom website design packages"
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DevCraft Studio" />
+  <meta property="og:title" content="DevCraft Studio – Custom Web Development & E-Commerce Agency" />
+  <meta
+    property="og:description"
+    content="Custom web development services, small business website design, and e-commerce web development company delivering fast, SEO-optimized web applications."
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DevCraft Studio – Custom Web Development & E-Commerce Agency" />
+  <meta
+    name="twitter:description"
+    content="Hire a professional web developer for custom web development services, small business website design, and e-commerce web development. Get a free quote today."
+  />
+
+  <!-- Google Fonts: Plus Jakarta Sans (Display), DM Sans (Body), JetBrains Mono (Metrics) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['DM Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            display: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #09090B;
+      color: #F4F4F5;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+
+  <!-- Schema.org Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "DevCraft Studio",
+      "description": "Full-stack web development agency and freelance web designer providing custom web development services, small business website design, and ecommerce web development.",
+      "priceRange": "$$",
+      "telephone": "+1-415-890-4321",
+      "email": "hello@devcraftstudio.io"
+    }
+  </script>
+</head>
+<body class="bg-[#09090B] text-zinc-100 antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- HEADER / STICKY GLASSMORPHISM NAVBAR -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-[#09090B]/85 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-8 px-6 py-4">
+      <!-- Zone 1: Brand Wordmark -->
+      <a href="#" class="font-display text-lg font-bold tracking-tight text-white whitespace-nowrap shrink-0">
+        DevCraft Studio
+      </a>
+
+      <!-- Zone 2: Navigation Links -->
+      <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+        <a href="#services" class="hover:text-white hover:underline underline-offset-8 decoration-blue-500 transition-colors whitespace-nowrap shrink-0">Services</a>
+        <a href="#portfolio" class="hover:text-white hover:underline underline-offset-8 decoration-blue-500 transition-colors whitespace-nowrap shrink-0">Portfolio</a>
+        <a href="#pricing" class="hover:text-white hover:underline underline-offset-8 decoration-blue-500 transition-colors whitespace-nowrap shrink-0">Pricing</a>
+        <a href="#about" class="hover:text-white hover:underline underline-offset-8 decoration-blue-500 transition-colors whitespace-nowrap shrink-0">About</a>
+        <a href="#contact" class="hover:text-white hover:underline underline-offset-8 decoration-blue-500 transition-colors whitespace-nowrap shrink-0">Contact</a>
+      </nav>
+
+      <!-- Zone 3: Primary CTA + Mobile Toggle -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a
+          href="#contact"
+          class="hidden sm:inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-500 transition-colors whitespace-nowrap shrink-0"
+        >
+          Get a Free Quote
+        </a>
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Toggle Mobile Navigation"
+          aria-expanded="false"
+          class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:text-white"
+        >
+          <svg id="icon-open" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="hidden h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-[#09090B] px-6 py-5 space-y-3">
+      <nav class="flex flex-col space-y-2 text-sm font-medium text-zinc-300">
+        <a href="#services" class="mobile-nav-link py-2 hover:text-white">Services</a>
+        <a href="#portfolio" class="mobile-nav-link py-2 hover:text-white">Portfolio</a>
+        <a href="#pricing" class="mobile-nav-link py-2 hover:text-white">Pricing</a>
+        <a href="#about" class="mobile-nav-link py-2 hover:text-white">About</a>
+        <a href="#contact" class="mobile-nav-link py-2 hover:text-white">Contact</a>
+      </nav>
+      <a
+        href="#contact"
+        class="mobile-nav-link block w-full rounded-lg bg-blue-600 py-2.5 text-center text-xs font-semibold text-white hover:bg-blue-500"
+      >
+        Get a Free Quote
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="mx-auto max-w-7xl px-6 pt-14 pb-20 lg:pt-20 lg:pb-24">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-stretch">
+        <div class="lg:col-span-7 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-blue-400 tracking-wide mb-5">
+              <span>Custom Web Development Services</span>
+              <span aria-hidden="true" class="text-zinc-700">·</span>
+              <span>E-Commerce Web Development Company</span>
+              <span aria-hidden="true" class="text-zinc-700">·</span>
+              <span>Technical SEO</span>
+            </div>
+
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.35rem] font-bold tracking-tight text-white leading-[1.08] mb-6" style="text-wrap: balance;">
+              High-Converting Websites Engineered for Speed, Scale, and Search Dominance
+            </h1>
+
+            <p class="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-2xl mb-8">
+              Partner directly with a senior <strong class="font-medium text-zinc-200">freelance web designer</strong> and <strong class="font-medium text-zinc-200">full-stack web development</strong> studio. We build tailored <strong class="font-medium text-zinc-200">small business website design</strong>, high-velocity Shopify &amp; WooCommerce stores, and custom enterprise web applications that turn organic traffic into measurable revenue.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 mb-10">
+              <a
+                href="#contact"
+                class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white hover:bg-blue-500 transition-colors whitespace-nowrap shrink-0"
+              >
+                <span>Start Your Project</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a
+                href="#portfolio"
+                class="inline-flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/70 px-6 py-3.5 text-sm font-semibold text-zinc-200 hover:border-zinc-700 hover:text-white transition-colors whitespace-nowrap shrink-0"
+              >
+                <span>View Work</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Trust Badges / Tech Stack -->
+          <div class="border-t border-zinc-800/80 pt-6">
+            <p class="text-xs text-zinc-500 mb-3">Production Tech Stack &amp; Platform Specializations</p>
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-zinc-300">
+              <span>React</span>
+              <span aria-hidden="true" class="text-zinc-700">·</span>
+              <span>Next.js</span>
+              <span aria-hidden="true" class="text-zinc-700">·</span>
+              <span>Tailwind CSS</span>
+              <span aria-hidden="true" class="text-zinc-700">·</span>
+              <span>Node.js</span>
+              <span aria-hidden="true" class="text-zinc-700">·</span>
+              <span>Shopify</span>
+              <span aria-hidden="true" class="text-zinc-700">·</span>
+              <span>WordPress &amp; WooCommerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Showcase Card -->
+        <div class="lg:col-span-5">
+          <div class="relative h-full min-h-[360px] rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 via-zinc-950 to-blue-950/30 p-8 flex flex-col justify-between">
+            <div class="flex items-center justify-between text-xs text-zinc-400 border-b border-zinc-800/80 pb-4">
+              <span>Architecture Audit · Core Web Vitals</span>
+              <span class="font-mono text-blue-400">99 / 100 Performance</span>
+            </div>
+            <div class="my-auto py-6 space-y-4">
+              <p class="text-xs font-medium text-blue-400">Direct Senior Engineering Studio</p>
+              <p class="font-display text-2xl font-bold text-white leading-snug">
+                Sub-Second Page Loads &amp; Semantic SEO Architecture
+              </p>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                Every custom web application development project is hand-crafted with clean semantic HTML5, structured JSON-LD schema, and zero render-blocking bloat.
+              </p>
+            </div>
+            <div class="border-t border-zinc-800/80 pt-4 flex items-center justify-between text-xs text-zinc-400">
+              <span>100% Source Code Ownership</span>
+              <span class="font-mono text-zinc-300">&lt; 0.8s LCP Target</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full-Width Metrics Row Below Hero Split -->
+      <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6 rounded-2xl border border-zinc-800/90 bg-zinc-900/30 p-6 sm:p-8">
+        <div>
+          <p class="font-mono tabular-nums text-2xl sm:text-3xl font-bold text-white mb-1">99/100</p>
+          <p class="text-xs text-zinc-400">Average Google Core Web Vitals Score Across Client Builds</p>
+        </div>
+        <div>
+          <p class="font-mono tabular-nums text-2xl sm:text-3xl font-bold text-white mb-1">+86%</p>
+          <p class="text-xs text-zinc-400">Median Lift in Qualified Inbound Leads Within 90 Days</p>
+        </div>
+        <div>
+          <p class="font-mono tabular-nums text-2xl sm:text-3xl font-bold text-white mb-1">&lt;0.8s</p>
+          <p class="text-xs text-zinc-400">Largest Contentful Paint (LCP) on Global Edge Networks</p>
+        </div>
+        <div>
+          <p class="font-mono tabular-nums text-2xl sm:text-3xl font-bold text-white mb-1">110+</p>
+          <p class="text-xs text-zinc-400">Custom Websites &amp; E-Commerce Storefronts Launched Since 2019</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="border-t border-zinc-800/80 py-20 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="max-w-3xl mb-14">
+          <p class="text-xs font-medium text-blue-400 mb-3">Capabilities &amp; Engineering Services · Built for Measurable ROI</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+            Custom Web Development Services Tailored to Your Growth Stage
+          </h2>
+          <p class="text-base text-zinc-400 leading-relaxed">
+            Whether you need affordable web design for small business lead generation or an enterprise ecommerce web development company to scale global retail, we engineer solutions without bloated templates.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-7 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <p class="font-mono text-xs font-semibold text-blue-400 mb-4">01. Bespoke Full-Stack Engineering</p>
+              <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3">Custom Web Design &amp; Development</h3>
+              <p class="text-sm sm:text-base text-zinc-400 leading-relaxed mb-6">
+                We design and code bespoke marketing sites, corporate portals, and custom web application development projects from the ground up using React, Next.js, Tailwind CSS, and Node.js.
+              </p>
+            </div>
+            <p class="border-t border-zinc-800/80 pt-4 text-xs text-zinc-400">
+              Small Business Website Design · Custom Web Application Development · Headless CMS &amp; API Systems
+            </p>
+          </div>
+
+          <div class="lg:col-span-5 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <p class="font-mono text-xs font-semibold text-blue-400 mb-4">02. Conversion Retail</p>
+              <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3">E-Commerce Solutions (Shopify / WooCommerce)</h3>
+              <p class="text-sm sm:text-base text-zinc-400 leading-relaxed mb-6">
+                As a dedicated ecommerce web development company, we build high-converting online stores with custom product configurators, instant search filtering, and one-page checkouts.
+              </p>
+            </div>
+            <p class="border-t border-zinc-800/80 pt-4 text-xs text-zinc-400">
+              Shopify Plus &amp; Liquid · Custom WooCommerce · Stripe &amp; ERP Sync
+            </p>
+          </div>
+
+          <div class="lg:col-span-5 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <p class="font-mono text-xs font-semibold text-blue-400 mb-4">03. Performance Overhaul</p>
+              <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3">Website Redesign &amp; Speed Optimization</h3>
+              <p class="text-sm sm:text-base text-zinc-400 leading-relaxed mb-6">
+                We audit your conversion funnel, eliminate render-blocking scripts, modernize your visual UX, and cut page load times by up to 75%.
+              </p>
+            </div>
+            <p class="border-t border-zinc-800/80 pt-4 text-xs text-zinc-400">
+              Core Web Vitals Rescue · UX Conversion Audit · Zero-Traffic-Loss Migration
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <p class="font-mono text-xs font-semibold text-blue-400 mb-4">04. Search &amp; Multi-Device Precision</p>
+              <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-3">SEO &amp; Mobile Responsiveness</h3>
+              <p class="text-sm sm:text-base text-zinc-400 leading-relaxed mb-6">
+                Every project is engineered as an SEO-optimized website builder architecture with fluid responsive website design across mobile, tablet, and desktop viewports.
+              </p>
+            </div>
+            <p class="border-t border-zinc-800/80 pt-4 text-xs text-zinc-400">
+              Responsive Website Design · Technical SEO Architecture · WCAG AA Accessibility
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO / CASE STUDIES SECTION -->
+    <section id="portfolio" class="border-t border-zinc-800/80 py-20 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+          <div class="max-w-2xl">
+            <p class="text-xs font-medium text-blue-400 mb-3">Proven Industry Outcomes · 4 Business Niche Showcases</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3">
+              Selected Portfolio &amp; Industry Case Studies
+            </h2>
+            <p class="text-base text-zinc-400">
+              Explore how our custom web development services drive revenue across e-commerce, corporate, real estate, and hospitality niches.
+            </p>
+          </div>
+
+          <!-- Interactive Filter Tabs -->
+          <div class="inline-flex flex-wrap items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-900/90 p-1 self-start">
+            <button type="button" data-filter="all" class="portfolio-tab rounded-md bg-blue-600 px-3.5 py-2 text-xs font-medium text-white transition-colors">All</button>
+            <button type="button" data-filter="ecommerce" class="portfolio-tab rounded-md px-3.5 py-2 text-xs font-medium text-zinc-400 hover:text-white transition-colors">E-Commerce</button>
+            <button type="button" data-filter="corporate" class="portfolio-tab rounded-md px-3.5 py-2 text-xs font-medium text-zinc-400 hover:text-white transition-colors">Corporate</button>
+            <button type="button" data-filter="landing" class="portfolio-tab rounded-md px-3.5 py-2 text-xs font-medium text-zinc-400 hover:text-white transition-colors">Landing Pages</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <article data-category="ecommerce" class="portfolio-card rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <p class="text-xs text-zinc-400 mb-3"><span class="text-blue-400 font-medium">E-Commerce</span> · Luxury Retail · 0.7s LCP</p>
+              <h3 class="font-display text-xl font-bold text-white mb-3">Obsidian Horology — Direct-to-Consumer Watch Storefront</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                Custom headless e-commerce web development with instant multi-currency switching, high-resolution movement inspection, and one-click express checkout.
+              </p>
+            </div>
+            <div class="border-t border-zinc-800/80 pt-4 flex items-center justify-between">
+              <span class="font-mono text-xs font-semibold text-blue-400">+68% Checkout Conversion Rate in 90 Days</span>
+              <a href="#contact" class="text-xs font-semibold text-zinc-300 hover:text-white">Build Similar &rarr;</a>
+            </div>
+          </article>
+
+          <article data-category="corporate" class="portfolio-card rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <p class="text-xs text-zinc-400 mb-3"><span class="text-blue-400 font-medium">Corporate</span> · Enterprise FinTech SaaS · 0.6s LCP</p>
+              <h3 class="font-display text-xl font-bold text-white mb-3">Quantum Treasury — Enterprise B2B Financial Analytics Platform</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                Full-stack corporate web application and interactive treasury yield simulator designed for CFOs and institutional finance teams.
+              </p>
+            </div>
+            <div class="border-t border-zinc-800/80 pt-4 flex items-center justify-between">
+              <span class="font-mono text-xs font-semibold text-blue-400">+142% Qualified Enterprise Demo Bookings</span>
+              <a href="#contact" class="text-xs font-semibold text-zinc-300 hover:text-white">Build Similar &rarr;</a>
+            </div>
+          </article>
+
+          <article data-category="corporate" class="portfolio-card rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <p class="text-xs text-zinc-400 mb-3"><span class="text-blue-400 font-medium">Corporate</span> · Real Estate &amp; Architecture · 0.8s LCP</p>
+              <h3 class="font-display text-xl font-bold text-white mb-3">Vela Moderne — Architectural Real Estate &amp; Floorplan Explorer</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                Bespoke real estate web platform featuring interactive multi-level residence floorplans, solar exposure views, and private dossier requests.
+              </p>
+            </div>
+            <div class="border-t border-zinc-800/80 pt-4 flex items-center justify-between">
+              <span class="font-mono text-xs font-semibold text-blue-400">$14.2M Qualified Buyer Pipeline</span>
+              <a href="#contact" class="text-xs font-semibold text-zinc-300 hover:text-white">Build Similar &rarr;</a>
+            </div>
+          </article>
+
+          <article data-category="landing" class="portfolio-card rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between hover:border-zinc-700 transition-colors">
+            <div>
+              <p class="text-xs text-zinc-400 mb-3"><span class="text-blue-400 font-medium">Landing Pages</span> · Restaurant &amp; Hospitality · 0.6s LCP</p>
+              <h3 class="font-display text-xl font-bold text-white mb-3">The Nocturne Collective — Fine Dining &amp; Hospitality Booking Engine</h3>
+              <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                High-converting hospitality landing page and direct table reservation experience for a Michelin-recognized restaurant collective.
+              </p>
+            </div>
+            <div class="border-t border-zinc-800/80 pt-4 flex items-center justify-between">
+              <span class="font-mono text-xs font-semibold text-blue-400">+84% Direct Table Reservations</span>
+              <a href="#contact" class="text-xs font-semibold text-zinc-300 hover:text-white">Build Similar &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING / INVESTMENT PACKAGES -->
+    <section id="pricing" class="border-t border-zinc-800/80 py-20 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="max-w-3xl mb-14">
+          <p class="text-xs font-medium text-blue-400 mb-3">Predictable Fixed-Scope Investment · 100% Code Ownership</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+            Custom Website Design Packages
+          </h2>
+          <p class="text-base text-zinc-400 leading-relaxed">
+            Transparent pricing whether you are looking for affordable web design for small business launches, a high-volume e-commerce storefront, or custom web application development.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          <!-- Tier 1 -->
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between">
+            <div>
+              <p class="text-xs text-zinc-400 mb-3">Local &amp; Service Brands · 2–3 Weeks</p>
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Starter Business</h3>
+              <p class="font-mono tabular-nums text-3xl sm:text-4xl font-bold text-white mb-4">$2,400</p>
+              <p class="text-xs text-zinc-300 mb-3">Target: Small businesses, consultants &amp; local services</p>
+              <p class="text-sm text-zinc-400 leading-relaxed mb-6 border-b border-zinc-800/80 pb-6">
+                Affordable web design for small business owners who need a fast, credible, SEO-optimized website builder foundation.
+              </p>
+              <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+                <li>? Up to 6 custom-designed responsive pages</li>
+                <li>? Mobile-first responsive website design</li>
+                <li>? Technical on-page SEO &amp; local Schema.org markup</li>
+                <li>? Lead capture form + WhatsApp &amp; CRM routing</li>
+                <li>? 95+ Google PageSpeed guarantee</li>
+              </ul>
+            </div>
+            <a href="#contact" class="block w-full text-center rounded-lg border border-zinc-700 bg-zinc-800/70 py-3.5 text-xs font-semibold text-white hover:bg-zinc-800 transition-colors">
+              Choose Plan — Starter Business
+            </a>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="rounded-2xl border border-blue-500/70 bg-zinc-900/80 p-8 flex flex-col justify-between">
+            <div>
+              <p class="text-xs font-semibold text-blue-400 mb-3">Most Popular · Scaling Brands &amp; Retail · 4–6 Weeks</p>
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Professional Business</h3>
+              <p class="font-mono tabular-nums text-3xl sm:text-4xl font-bold text-white mb-4">$5,800</p>
+              <p class="text-xs text-zinc-300 mb-3">Target: Growing companies, D2C retail &amp; B2B organizations</p>
+              <p class="text-sm text-zinc-400 leading-relaxed mb-6 border-b border-zinc-800/80 pb-6">
+                Comprehensive custom web development services or full-featured Shopify / WooCommerce storefront engineered for conversions.
+              </p>
+              <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+                <li>? Up to 15 bespoke pages or full E-Commerce store</li>
+                <li>? Custom Shopify, WooCommerce, or headless CMS</li>
+                <li>? Conversion-engineered product filtering &amp; checkout</li>
+                <li>? Custom interactive calculators or booking flows</li>
+                <li>? 45 days of priority post-launch engineering support</li>
+              </ul>
+            </div>
+            <a href="#contact" class="block w-full text-center rounded-lg bg-blue-600 py-3.5 text-xs font-semibold text-white hover:bg-blue-500 transition-colors">
+              Choose Plan — Professional Business
+            </a>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between">
+            <div>
+              <p class="text-xs text-zinc-400 mb-3">SaaS, Portals &amp; Bespoke Apps · 6–10 Weeks</p>
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Custom Enterprise</h3>
+              <p class="font-mono tabular-nums text-3xl sm:text-4xl font-bold text-white mb-4">$12,500+</p>
+              <p class="text-xs text-zinc-300 mb-3">Target: Funded startups, high-volume merchants &amp; enterprises</p>
+              <p class="text-sm text-zinc-400 leading-relaxed mb-6 border-b border-zinc-800/80 pb-6">
+                Full-stack web application development with custom backend APIs, multi-role authentication, and global edge delivery.
+              </p>
+              <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+                <li>? Full-stack React, Next.js, Node.js &amp; PostgreSQL</li>
+                <li>? Custom web application development &amp; APIs</li>
+                <li>? Role-based access control (RBAC) &amp; SSO security</li>
+                <li>? Headless commerce for 10,000+ SKU catalogs</li>
+                <li>? 90-day dedicated SLA &amp; performance monitoring</li>
+              </ul>
+            </div>
+            <a href="#contact" class="block w-full text-center rounded-lg border border-zinc-700 bg-zinc-800/70 py-3.5 text-xs font-semibold text-white hover:bg-zinc-800 transition-colors">
+              Choose Plan — Custom Enterprise
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE ME / 4-STEP PROCESS SECTION -->
+    <section id="about" class="border-t border-zinc-800/80 py-20 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="max-w-3xl mb-14">
+          <p class="text-xs font-medium text-blue-400 mb-3">Why Hire DevCraft Studio · Engineering-First Workflow</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+            A Disciplined 4-Step Process From Discovery to Launch
+          </h2>
+          <p class="text-base text-zinc-400">
+            When you hire a professional web developer at DevCraft Studio, you work directly with the principal engineer architecting your platform.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-7">
+            <p class="font-mono text-xs font-semibold text-blue-400 mb-3">01. Discovery &amp; SEO</p>
+            <h3 class="font-display text-lg font-bold text-white mb-2">Competitor Audit &amp; Conversion Wireframing</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              We map high-intent search keywords, analyze competitor funnels, and blueprint your site architecture before writing code.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-7">
+            <p class="font-mono text-xs font-semibold text-blue-400 mb-3">02. UI/UX Design</p>
+            <h3 class="font-display text-lg font-bold text-white mb-2">Bespoke Visual Systems &amp; Prototypes</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Interactive Figma prototypes with intentional typography, accessible contrast, and conversion-focused layouts.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-7">
+            <p class="font-mono text-xs font-semibold text-blue-400 mb-3">03. Development</p>
+            <h3 class="font-display text-lg font-bold text-white mb-2">Clean Full-Stack &amp; E-Commerce Code</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Responsive website design coded with semantic HTML5, Tailwind CSS, React/Next.js, or Shopify/WooCommerce.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-7">
+            <p class="font-mono text-xs font-semibold text-blue-400 mb-3">04. Launch &amp; Support</p>
+            <h3 class="font-display text-lg font-bold text-white mb-2">Deployment, Indexing &amp; Growth Tuning</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Zero-downtime deployment, Google Search Console indexing, 99/100 Core Web Vitals verification, and team training.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS / SOCIAL PROOF -->
+    <section class="border-t border-zinc-800/80 py-20 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="max-w-3xl mb-14">
+          <p class="text-xs font-medium text-blue-400 mb-3">Client Testimonials · 5.0 Average Rating</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+            Trusted by Founders, E-Commerce Directors, and Marketing Leaders
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-amber-400 text-sm tracking-widest">?????</span>
+                <span class="font-mono text-xs font-semibold text-blue-400">+68% Checkout Conversion</span>
+              </div>
+              <p class="text-sm sm:text-base text-zinc-300 leading-relaxed mb-8">
+                "Their custom e-commerce web development cut our mobile load time from 5.2s to 0.7s and increased completed checkouts by 68% within 90 days."
+              </p>
+            </div>
+            <div class="border-t border-zinc-800/80 pt-4">
+              <p class="font-display text-sm font-bold text-white">Marcus Vance</p>
+              <p class="text-xs text-zinc-400">Founder &amp; Managing Director · Obsidian Horology</p>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-amber-400 text-sm tracking-widest">?????</span>
+                <span class="font-mono text-xs font-semibold text-blue-400">+142% Enterprise Demos</span>
+              </div>
+              <p class="text-sm sm:text-base text-zinc-300 leading-relaxed mb-8">
+                "We needed to hire a professional web developer who understood both enterprise B2B positioning and technical SEO. Organic demo bookings grew by 142% in six months."
+              </p>
+            </div>
+            <div class="border-t border-zinc-800/80 pt-4">
+              <p class="font-display text-sm font-bold text-white">Elena Rostova</p>
+              <p class="text-xs text-zinc-400">VP of Demand Generation · Quantum Treasury Systems</p>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-amber-400 text-sm tracking-widest">?????</span>
+                <span class="font-mono text-xs font-semibold text-blue-400">+84% Direct Bookings</span>
+              </div>
+              <p class="text-sm sm:text-base text-zinc-300 leading-relaxed mb-8">
+                "DevCraft delivered an affordable web design for small business expansion that generated 84% more direct table reservations in the first quarter alone."
+              </p>
+            </div>
+            <div class="border-t border-zinc-800/80 pt-4">
+              <p class="font-display text-sm font-bold text-white">Julian Thorne</p>
+              <p class="text-xs text-zinc-400">Operating Partner · The Nocturne Collective</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM / LEAD GENERATION -->
+    <section id="contact" class="border-t border-zinc-800/80 py-20 lg:py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5 space-y-8">
+            <div>
+              <p class="text-xs font-medium text-blue-400 mb-3">Get Website Design Quote · Response Within 24 Hours</p>
+              <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+                Ready to Hire a Professional Web Developer?
+              </h2>
+              <p class="text-base text-zinc-400 leading-relaxed">
+                Share your goals, timeline, and budget range. You will receive a custom architectural roadmap, fixed-price quote, and complimentary speed &amp; SEO audit.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 space-y-5">
+              <h3 class="font-display text-base font-bold text-white">Direct Contact Channels</h3>
+              <div class="space-y-3 text-sm text-zinc-300">
+                <p><strong class="text-zinc-400">Email:</strong> <a href="mailto:hello@devcraftstudio.io" class="hover:text-white">hello@devcraftstudio.io</a></p>
+                <p><strong class="text-zinc-400">Phone:</strong> <a href="tel:+14158904321" class="font-mono hover:text-white">+1 (415) 890-4321</a></p>
+              </div>
+              <div class="pt-2">
+                <a
+                  href="https://wa.me/14158904321"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex w-full items-center justify-center rounded-lg border border-emerald-500/40 bg-emerald-950/40 px-4 py-3 text-xs font-semibold text-emerald-300 hover:bg-emerald-950/70 transition-colors"
+                >
+                  Chat Directly on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <form id="lead-form" class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 sm:p-10 space-y-6">
+              <h3 class="font-display text-xl font-bold text-white">Request Your Free Project Proposal &amp; Quote</h3>
+
+              <div id="form-success" class="hidden rounded-xl border border-emerald-500/40 bg-emerald-950/30 p-4 text-xs text-emerald-200">
+                Thank you! Your quote request has been received. Our senior engineer will respond within 1 business day.
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-medium text-zinc-300 mb-2">Full Name *</label>
+                  <input type="text" required placeholder="Sarah Jenkins" class="w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white focus:border-blue-500 focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-zinc-300 mb-2">Work Email *</label>
+                  <input type="email" required placeholder="sarah@company.com" class="w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white focus:border-blue-500 focus:outline-none" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-medium text-zinc-300 mb-2">Business Type</label>
+                  <select class="w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white focus:border-blue-500 focus:outline-none">
+                    <option>Small Business / Local Service Website</option>
+                    <option>E-Commerce Store (Shopify / WooCommerce)</option>
+                    <option>Corporate B2B / Enterprise Portal</option>
+                    <option>Custom SaaS / Web Application Development</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-zinc-300 mb-2">Budget Range</label>
+                  <select class="w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white focus:border-blue-500 focus:outline-none">
+                    <option>$2,000 – $4,000 (Starter Business)</option>
+                    <option>$4,000 – $8,000 (Professional Business)</option>
+                    <option>$8,000 – $15,000 (Growth &amp; E-Commerce)</option>
+                    <option>$10,000+ (Custom Enterprise)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-zinc-300 mb-2">Project Details &amp; Goals *</label>
+                <textarea rows="4" required placeholder="Tell us about your project scope, desired features, and target launch timeline..." class="w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white focus:border-blue-500 focus:outline-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full sm:w-auto rounded-lg bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white hover:bg-blue-500 transition-colors cursor-pointer">
+                Get Website Design Quote &rarr;
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-zinc-800/80 bg-[#09090B] py-16">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-zinc-800/80">
+        <div class="md:col-span-5 space-y-3">
+          <p class="font-display text-lg font-bold text-white">DevCraft Studio</p>
+          <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+            Full-stack web development agency and freelance web designer collective specializing in custom web development services, small business website design, and ecommerce web development company solutions.
+          </p>
+        </div>
+        <div class="md:col-span-3 space-y-2 text-xs text-zinc-400">
+          <p class="font-display font-semibold text-zinc-200 mb-2">Quick Navigation</p>
+          <p><a href="#services" class="hover:text-white">Services</a></p>
+          <p><a href="#portfolio" class="hover:text-white">Portfolio</a></p>
+          <p><a href="#pricing" class="hover:text-white">Pricing Packages</a></p>
+          <p><a href="#about" class="hover:text-white">Process</a></p>
+          <p><a href="#contact" class="hover:text-white">Contact</a></p>
+        </div>
+        <div class="md:col-span-4 space-y-2 text-xs text-zinc-500">
+          <p class="font-display font-semibold text-zinc-200 mb-2">SEO Specializations</p>
+          <p class="leading-relaxed">
+            Responsive website design · Affordable web design for small business · Full-stack web development · SEO-optimized website builder · Custom web application development · Hire professional web developer.
+          </p>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+        <p>&copy; 2026 DevCraft Studio. All rights reserved.</p>
+        <p>Engineered with Clean HTML5, Tailwind CSS &amp; Vanilla JS.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- EMBEDDED VANILLA JAVASCRIPT -->
+  <script>
+    // 1. Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden', !isHidden);
+      iconClose.classList.toggle('hidden', isHidden);
+      mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // 2. Portfolio Category Tab Filtering
+    const filterButtons = document.querySelectorAll('.portfolio-tab');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const selectedCategory = btn.getAttribute('data-filter');
+
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-blue-600', 'text-white');
+          b.classList.add('text-zinc-400');
+        });
+        btn.classList.add('bg-blue-600', 'text-white');
+        btn.classList.remove('text-zinc-400');
+
+        portfolioCards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-category');
+          if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 3. Lead Generation Form Confirmation
+    const leadForm = document.getElementById('lead-form');
+    const formSuccess = document.getElementById('form-success');
+
+    leadForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formSuccess.classList.remove('hidden');
+      leadForm.reset();
+    });
+  </script>
+</body>
+</html>
